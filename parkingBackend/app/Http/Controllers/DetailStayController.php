@@ -210,14 +210,13 @@ class DetailStayController extends Controller
         try {
 
             //Delete oficial and resident start month
-            $deleteData = DetailStay::whereNotNull('vehicle_id')->get();
-            $deleteData->delete();
+            DetailStay::whereNotNull('vehicle_id')->delete();
 
             $data = [
                 'code' => 200,
                 'message' => 'Restart Month to resident and official customers'
             ];
-            return response()->json();
+            return response()->json($data);
         } catch (\Throwable $error) {
             return response()->json($error->getMessage());
         }
