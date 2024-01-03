@@ -1,0 +1,99 @@
+<div class="page-wrapper">
+  <div class="content">
+
+      <!-- Page Header -->
+      <div class="page-header">
+          <div class="row">
+              <div class="col-sm-12">
+                  <ul class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="#">Vehiculos </a></li>
+                      <li class="breadcrumb-item"><i class="feather icon-chevron-right"></i></li>
+                      <li class="breadcrumb-item active">Crear vehiculo</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      <!-- /Page Header -->
+      <div class="row">
+          <div class="col-sm-12">
+
+              <div class="card">
+                  <div class="card-body">
+                      <form>
+                          <div class="row">
+                              <div class="col-12">
+                                  <div class="form-heading">
+                                      <h4>Staff Add</h4>
+                                  </div>
+                              </div>
+                              <div class="col-12 col-md-6 col-xl-4">
+                                  <div class="form-group local-forms">
+                                      <label >Nombre del propietario <span class="login-danger">*</span></label>
+                                      <input class="form-control" (ngModel)="ownerName" name="owneName" type="text"  >
+                                  </div>
+                              </div>
+                              <div class="col-12 col-md-6 col-xl-4">
+                                  <div class="form-group local-forms">
+                                      <label >Placa <span class="login-danger">*</span></label>
+                                      <input class="form-control" (ngModel)="licensePlate" name="licensePlate" type="text"  >
+                                  </div>
+                              </div>
+                              <div class="col-12 col-md-6 col-xl-4">
+                                  <div class="form-group local-forms">
+                                      <label >Tipo de vehículo <span class="login-danger">*</span></label>
+                                      <input class="form-control" (ngModel)="vehicleType" name="vehicleType" type="text"  >
+                                  </div>
+                              </div>
+
+                              <!-- <div class="col-12 col-md-6 col-xl-6">
+                                  <div class="form-group select-gender">
+                                      <label class="gen-label">Status <span class="login-danger">*</span></label>
+                                      <div class="form-check-inline">
+                                          <label class="form-check-label">
+                                              <input type="radio" name="gender" class="form-check-input">Active
+                                          </label>
+                                      </div>
+                                      <div class="form-check-inline">
+                                          <label class="form-check-label">
+                                              <input type="radio" name="gender" class="form-check-input">In Active
+                                          </label>
+                                      </div>
+                                  </div>
+                              </div> -->
+                              <div class="col-12">
+                                  <div class="form-group row my-4" *ngIf="text_success">
+                                      <div class="col-md-8">
+                                          <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                              <strong>Exito!</strong> {{ text_success }}.
+                                              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                                  <span aria-hidden="true"> </span>
+                                              </button>
+                                          </div>
+                                      </div>
+                                  </div>
+
+                                  <div class="form-group row my-4" *ngIf="text_validation">
+                                      <div class="col-md-8">
+                                          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                              <strong>!</strong> {{ text_validation }}.
+                                              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                                  <span aria-hidden="true"> </span>
+                                              </button>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-12">
+                                  <div class="doctor-submit text-end">
+                                      <button type="button" (click)="save()" class="btn btn-primary submit-form me-2">Guardar</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
