@@ -27,6 +27,7 @@ class DetailStayController extends Controller
         $this->middleware('auth:api');
     }
 
+    // Registro de entrada estancia
     public function checkInRegister(Request $request)
     {
         try {
@@ -76,6 +77,7 @@ class DetailStayController extends Controller
         }
     }
 
+    // Resgistro salida estancia, y genera cobro o no dependiendo del tipo de vehiculo
 
     public function checkOutRegister(Request $request)
     {
@@ -155,6 +157,7 @@ class DetailStayController extends Controller
     }
 
 
+    // Genera reporte
     public function residentReport(Request $request)
     {
 
@@ -188,12 +191,16 @@ class DetailStayController extends Controller
             }
 
             $extension = '.xlsx';
-            $fileName = $request->fileName . '_';
+            $fileName = $request->fileName . '_' . date('Y_m_d_H_i_s');
             $export = new ReportExport($matrixReport);
-            $excelFile = 'public/temp/' . $fileName . uniqid() . $extension;
+            $excelFile = 'public/temp/' . $fileName .  $extension;
             Excel::store($export, $excelFile, 'public',  EXLSX::XLSX);
+            $getFile = Storage::disk("public");
 
-            $base64Content = base64_encode($excelFile);
+
+            $base64Content = base64_encode($getFile->get($excelFile));
+
+            //            $base64Content = base64_encode($encode);
 
             //Storage::delete($excelFile);
 
@@ -205,6 +212,7 @@ class DetailStayController extends Controller
         }
     }
 
+    // Genera inicio mes
     public function startMonth()
     {
         try {
